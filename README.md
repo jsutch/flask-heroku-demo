@@ -1,3 +1,3 @@
-## Flask with SQLAlchemy demo
+## Flask App with Heroku demo
 
- A dummy store app with user, item and stores interfaces. Includes a Postman collection with JWT tools
+ A dummy store app with user, item and stores interfaces for Heroku testing.
