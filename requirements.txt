@@ -8,3 +8,4 @@ Flask-RESTful==0.3.8
 Flask-SQLAlchemy==2.4.0
 Werkzeug==0.15.5
 uwsgi==2.0.18
+psycopg2
