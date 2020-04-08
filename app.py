@@ -14,8 +14,6 @@ import logging
 
 
 # our libraries
-import creds
-
 # security
 from security import authenticate, identity 
 # db
@@ -27,15 +25,17 @@ from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 
 # credentials pulled from creds.py
-uname = creds.username
-passwd = creds.password
-fullSqlLitePath = creds.fullSqlLitePath
+#import creds
+#uname = creds.username
+#passwd = creds.password
+#fullSqlLitePath = creds.fullSqlLitePath
 
 # instantiate app
 app = Flask(__name__)
 
 # configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = fullSqlLitePath
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////data.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = fullSqlLitePath
 #app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{uname}:{passwd}@localhost/datadb' # using mysql
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turn off Flask_SQLAlchemy change tracker
 app.config['PROPAGATE_EXCEPTIONS'] = True
