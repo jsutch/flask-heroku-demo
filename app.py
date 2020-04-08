@@ -34,7 +34,7 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 
 # configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = fullSqlLitePath
 #app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{uname}:{passwd}@localhost/datadb' # using mysql
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turn off Flask_SQLAlchemy change tracker
