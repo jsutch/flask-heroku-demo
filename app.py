@@ -34,7 +34,9 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 
 # configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+# try to get DATABASE_URL for Heroku PostGRES (or other). If not found, fall back to sqlite
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 #app.config['SQLALCHEMY_DATABASE_URI'] = fullSqlLitePath
 #app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{uname}:{passwd}@localhost/datadb' # using mysql
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turn off Flask_SQLAlchemy change tracker
@@ -45,15 +47,6 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = 'hummingbird'
 # instantiate API
 api = Api(app)
-
-# adding SQLAlchemy datastore creation
-@app.before_first_request
-def create_tables():
-    """
-    Create a datastore at SQLALCHEMY_DATABASE_URI and the tables inside,
-    unless they exist already
-    """
-    db.create_all()
 
 # JWT configuration
 # default creates a new endpoint of /auth
