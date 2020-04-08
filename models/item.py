@@ -2,7 +2,7 @@ from db import db
 
 # logging config
 import logging
-logging.basicConfig(filename='code/testing.log',level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+# logging.basicConfig(filename='code/testing.log',level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 # logging.basicConfig(format='%(asctime)s %(message)s')
 
 class ItemModel(db.Model):
@@ -42,7 +42,7 @@ class ItemModel(db.Model):
             # logging.debug('find_by_name() called: ', name, cls.query.filter_by(name=name).first())
             return cls.query.filter_by(name=name).first() # select * from items where name=name, limit 1
         except Exception as e:  
-            logging.debug('Exception:', e)
+            # logging.debug('Exception:', e)
             return e
 
     def save_to_db(self):
@@ -55,7 +55,7 @@ class ItemModel(db.Model):
             #logging.debug("save_to_db.commit()")
             db.session.commit()
         except Exception as e:
-            logging.debug('save_to_db.commit() Exception: ', e)
+            # logging.debug('save_to_db.commit() Exception: ', e)
             return e
 
     def delete_from_db(self):

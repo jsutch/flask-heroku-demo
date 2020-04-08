@@ -4,7 +4,7 @@ from db import db
 from flask_restful import reqparse
 # logging config
 import logging
-logging.basicConfig(filename='code/testing.log',level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+# logging.basicConfig(filename='code/testing.log',level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 class UserModel(db.Model):
@@ -32,7 +32,7 @@ class UserModel(db.Model):
         try:
             return cls.query.filter_by(username=username).first()
         except Exception as e:  
-            logging.debug('Exception:', e)
+            # logging.debug('Exception:', e)
             return e
 
     @classmethod
@@ -43,7 +43,7 @@ class UserModel(db.Model):
         try:
             return cls.query.filter_by(id=_id).first()
         except Exception as e:  
-            logging.debug('Exception:', e)
+            # logging.debug('Exception:', e)
             return e
 
     def save_to_db(self):
@@ -54,7 +54,7 @@ class UserModel(db.Model):
         try:
             db.session.commit()
         except Exception as e:
-            logging.debug('save_to_db.commit() Exception: ', e)
+            # logging.debug('save_to_db.commit() Exception: ', e)
             return e
 
     def delete_from_db(self):
